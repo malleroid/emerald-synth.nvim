@@ -1,6 +1,10 @@
+local util = require("emerald-synth.util")
+
 local M = {}
 
 function M.get(p)
+  local blend = function(fg, alpha) return util.blend(fg, p.bg, alpha) end
+
   return {
     -- Background & Text
     Normal = { fg = p.fg, bg = p.bg },
@@ -90,10 +94,10 @@ function M.get(p)
     SpellRare = { sp = p.hint, undercurl = true },
 
     -- Diff
-    DiffAdd = { bg = "#00ffcc15" },
-    DiffChange = { bg = "#ffcc6615" },
-    DiffDelete = { bg = "#ff2a6d15" },
-    DiffText = { bg = "#ffcc6630" },
+    DiffAdd = { bg = blend(p.green, 0x15 / 0xFF) },
+    DiffChange = { bg = blend(p.yellow, 0x15 / 0xFF) },
+    DiffDelete = { bg = blend(p.red, 0x15 / 0xFF) },
+    DiffText = { bg = blend(p.yellow, 0x30 / 0xFF) },
     Added = { fg = p.green },
     Changed = { fg = p.yellow },
     Removed = { fg = p.red },

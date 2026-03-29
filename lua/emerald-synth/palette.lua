@@ -27,7 +27,7 @@ M.colors = {
 
   -- Accent
   accent = "#00ffcc",
-  accent_dim = "#00ffcc40",
+  accent_dim = nil, -- set after M.colors is defined
   accent_text = "#40ffdd",
   accent_fg = "#0d0221",
   accent_border = "#00d4aa",
@@ -75,5 +75,8 @@ M.colors = {
   -- Derived
   none = "NONE",
 }
+
+local util = require("emerald-synth.util")
+M.colors.accent_dim = util.blend(M.colors.accent, M.colors.bg, 0x40 / 0xFF)
 
 return M

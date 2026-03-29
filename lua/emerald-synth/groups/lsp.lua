@@ -1,6 +1,10 @@
+local util = require("emerald-synth.util")
+
 local M = {}
 
 function M.get(p)
+  local blend = function(fg, alpha) return util.blend(fg, p.bg, alpha) end
+
   return {
     -- Diagnostic
     DiagnosticError = { fg = p.error },
@@ -10,10 +14,10 @@ function M.get(p)
     DiagnosticOk = { fg = p.success },
 
     -- Diagnostic virtual text
-    DiagnosticVirtualTextError = { fg = p.error, bg = "#ff2a6d15" },
-    DiagnosticVirtualTextWarn = { fg = p.warning, bg = "#ffcc6615" },
-    DiagnosticVirtualTextInfo = { fg = p.info, bg = "#8b9cf715" },
-    DiagnosticVirtualTextHint = { fg = p.hint, bg = "#4dd0e115" },
+    DiagnosticVirtualTextError = { fg = p.error, bg = blend(p.error, 0x15 / 0xFF) },
+    DiagnosticVirtualTextWarn = { fg = p.warning, bg = blend(p.warning, 0x15 / 0xFF) },
+    DiagnosticVirtualTextInfo = { fg = p.info, bg = blend(p.info, 0x15 / 0xFF) },
+    DiagnosticVirtualTextHint = { fg = p.hint, bg = blend(p.hint, 0x15 / 0xFF) },
 
     -- Diagnostic underline
     DiagnosticUnderlineError = { sp = p.error, undercurl = true },
@@ -38,9 +42,9 @@ function M.get(p)
     DiagnosticDeprecated = { fg = p.bright_black, strikethrough = true },
 
     -- LSP references
-    LspReferenceText = { bg = "#00ffcc15" },
-    LspReferenceRead = { bg = "#00ffcc20" },
-    LspReferenceWrite = { bg = "#00ffcc30" },
+    LspReferenceText = { bg = blend(p.accent, 0x15 / 0xFF) },
+    LspReferenceRead = { bg = blend(p.accent, 0x20 / 0xFF) },
+    LspReferenceWrite = { bg = blend(p.accent, 0x30 / 0xFF) },
 
     -- LSP misc
     LspSignatureActiveParameter = { fg = p.accent, bold = true },
