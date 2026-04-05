@@ -6,6 +6,8 @@ This repository is a distribution copy of the Neovim colorscheme from [malleroid
 
 ## Preview
 
+![Emerald Synth for Neovim](screenshot.png)
+
 | Role | Color | Hex |
 |------|-------|-----|
 | Background | ![#0d0221](https://placehold.co/16x16/0d0221/0d0221) | `#0d0221` |
