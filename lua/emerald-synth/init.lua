@@ -1,7 +1,11 @@
 local M = {}
 
+M.config = {
+  transparent = false,
+}
+
 function M.setup(opts)
-  -- Reserved for future configuration
+  M.config = vim.tbl_extend("force", M.config, opts or {})
 end
 
 function M.load()
@@ -21,6 +25,21 @@ function M.load()
   groups = vim.tbl_extend("force", groups, require("emerald-synth.groups.lsp").get(p))
   groups = vim.tbl_extend("force", groups, require("emerald-synth.integrations.telescope").get(p))
   groups = vim.tbl_extend("force", groups, require("emerald-synth.integrations.gitsigns").get(p))
+
+  if M.config.transparent then
+    local none = { bg = "NONE" }
+    for _, name in ipairs({
+      "Normal", "NormalNC", "NormalFloat", "NormalSB",
+      "SignColumn", "FoldColumn", "Folded",
+      "TabLineFill",
+      "WinBar", "WinBarNC",
+      "TelescopeNormal", "TelescopePreviewNormal",
+    }) do
+      if groups[name] then
+        groups[name] = vim.tbl_extend("force", groups[name], none)
+      end
+    end
+  end
 
   for group, setting in pairs(groups) do
     vim.api.nvim_set_hl(0, group, setting)

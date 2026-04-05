@@ -25,6 +25,14 @@ This repository is a distribution copy of the Neovim colorscheme from [malleroid
 - Plugin integrations: Telescope, Gitsigns
 - Terminal ANSI colors (normal + bright)
 
+## Configuration
+
+```lua
+require("emerald-synth").setup({
+  transparent = false,  -- set to true for transparent background
+})
+```
+
 ## Install
 
 ### lazy.nvim (recommended)
