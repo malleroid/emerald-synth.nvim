@@ -4,10 +4,10 @@ local M = {}
 M.colors = {
   -- Core
   bg = "#0d0221",
-  fg = "#f0e6ff",
-  cursor = "#00ffcc",
+  fg = "#00ffcc",
+  cursor = "#ff79c6",
   cursor_text = "#0d0221",
-  selection_fg = "#f0e6ff",
+  selection_fg = "#00ffcc",
   selection_bg = "#1a3d35",
   split_divider = "#4a3565",
   search_fg = "#ffcc66",
@@ -22,15 +22,16 @@ M.colors = {
   bg_raised = "#2b1451",
 
   -- Foreground shades
-  fg_muted = "#8369a5",
+  fg_muted = "#8d73af",
   fg_dim = "#60e0d0",
+  fg_dark = "#00d4aa",
 
   -- Accent
-  accent = "#00ffcc",
+  accent = "#ff79c6",
   accent_dim = nil, -- set after M.colors is defined
-  accent_text = "#40ffdd",
+  accent_text = "#ff9ed0",
   accent_fg = "#0d0221",
-  accent_border = "#00d4aa",
+  accent_border = "#d964a8",
 
   -- Semantic
   success = "#00ffcc",
@@ -42,7 +43,7 @@ M.colors = {
   -- ANSI
   black = "#0a0118",
   red = "#ff2a6d",
-  green = "#00ffcc",
+  green = "#00e67e",
   yellow = "#ffcc66",
   blue = "#8b9cf7",
   magenta = "#ff79c6",
@@ -61,13 +62,13 @@ M.colors = {
   -- Syntax (from palette.toml [syntax])
   syn_keyword = "#8b9cf7",
   syn_function = "#4dd0e1",
-  syn_string = "#00ffcc",
+  syn_string = "#ff79c6",
   syn_comment = "#6a5585",
   syn_type = "#ffcc66",
   syn_number = "#ffe099",
   syn_boolean = "#ffe099",
   syn_constant = "#ffe099",
-  syn_operator = "#f0e6ff",
+  syn_operator = "#00ffcc",
   syn_property = "#4dd0e1",
   syn_tag = "#ff2a6d",
   syn_punctuation = "#6a5585",

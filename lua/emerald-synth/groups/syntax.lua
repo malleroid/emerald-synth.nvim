@@ -41,7 +41,7 @@ function M.get(p)
 
     -- Special
     Special = { fg = p.cyan },
-    SpecialChar = { fg = p.magenta },
+    SpecialChar = { fg = p.bright_magenta },
     Tag = { fg = p.syn_tag },
     Delimiter = { fg = p.syn_punctuation },
     SpecialComment = { fg = p.syn_comment, bold = true },

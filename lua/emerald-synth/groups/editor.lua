@@ -16,7 +16,7 @@ function M.get(p)
     Cursor = { fg = p.cursor_text, bg = p.cursor },
     lCursor = { link = "Cursor" },
     CursorIM = { link = "Cursor" },
-    CursorLine = { bg = "#131f2b" },  -- selection_bg 50% on bg (teal tint)
+    CursorLine = { bg = blend(p.selection_bg, 0.5) },
     CursorColumn = { link = "CursorLine" },
     CursorLineNr = { fg = p.accent, bold = true },
     TermCursor = { fg = p.cursor_text, bg = p.cursor },
